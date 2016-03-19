@@ -245,6 +245,7 @@
           {:keys [handler route-params] :as match-context}
           (or (:match-context req)
               (apply bidi/match-route route path (apply concat (seq req))))]
+      (clojure.pprint/pprint route)
       (when handler
         (bidi-ring/request
          handler
